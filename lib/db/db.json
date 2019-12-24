@@ -1,0 +1,14 @@
+[
+    {
+        "Query":"CREATE TABLE IF NOT EXISTS `employees` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(1000) NULL ,`address` VARCHAR(5000) NULL ,`email` VARCHAR(1000) NULL ,`mobile1` BIGINT NULL ,`mobile2` BIGINT NULL ,`designation` VARCHAR(1000) NULL ,`dob` DATETIME NULL ,`doj` DATETIME NULL , `salary` FLOAT NULL, `supervisor` INT NULL, `password` VARCHAR(30) NULL, `profile_pic` VARCHAR(500) NULL, `id_proof` VARCHAR(500) NULL, `resume` VARCHAR(500) NULL,`notificationid` VARCHAR(500) NULL,`uuid` VARCHAR(500) NULL, `status` INT NOT NULL DEFAULT '0' ,`createddate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `createdby` INT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB;INSERT INTO `employees` (`name`,`email`,`mobile1`,`designation`,`password`) SELECT * FROM (SELECT 'Mayur Mhatre', 'mhatre975@gmail.com', 9768241151,'superadmin','fb3d0d8964e294bf48135ca3ad0f183c') AS tmp WHERE NOT EXISTS (SELECT name FROM `employees` WHERE `email` = 'mhatre975@gmail.com' AND `mobile` = 9768241151) LIMIT 1;"
+    },
+    {
+        "Query":"CREATE TABLE IF NOT EXISTS `modules` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(1000) NULL ,`description` VARCHAR(5000) NULL ,`icon` VARCHAR(1000) NULL, `status` INT NOT NULL DEFAULT '0' ,`createddate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `createdby` INT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB;"
+    },
+    {
+        "Query":"CREATE TABLE IF NOT EXISTS `designations` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(1000) NULL ,`description` VARCHAR(5000) NULL , `status` INT NOT NULL DEFAULT '0' ,`createddate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `createdby` INT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB;"
+    },
+    {
+        "Query":"CREATE TABLE IF NOT EXISTS `moduleassignment` ( `id` INT NOT NULL AUTO_INCREMENT , `designation` INT NULL ,`module` INT NULL ,`create_entry` INT NOT NULL DEFAULT '0',`update_entry` INT NOT NULL DEFAULT '0',`delete_entry` INT NOT NULL DEFAULT '0', `status` INT NOT NULL DEFAULT '0' ,`createddate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `createdby` INT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB;"
+    },
+]
